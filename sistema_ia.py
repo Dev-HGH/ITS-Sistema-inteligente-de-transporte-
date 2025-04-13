@@ -85,7 +85,27 @@ class SistemaTransporte:
 
         return camino, costos[destino]
 
+# Ejemplo de uso del sistema: #Parte 2 Cristhian
+# Creamos una instancia del sistema de transporte.
+sistema = SistemaTransporte()
 
+# Datos de entrenamiento (origen, destino, costo).
+datos_entrenamiento = [
+    ('A', 'B', 5), ('A', 'C', 10), ('B', 'D', 7),
+    ('B', 'E', 3), ('C', 'F', 8), ('D', 'G', 6),
+    ('E', 'H', 4), ('H', 'I', 7), ('F', 'I', 12)
+]
+
+# Entrenamos el modelo con los datos históricos.
+sistema.entrenar_modelo(datos_entrenamiento)
+
+# Encontramos la mejor ruta usando el modelo entrenado.
+punto_A = 'A'
+punto_B = 'I'
+ruta_optima, costo_total = sistema.encontrar_mejor_ruta(punto_A, punto_B)
+
+print(f"Mejor ruta de {punto_A} a {punto_B}: {' → '.join(ruta_optima)}")
+print(f"Costo total del viaje: {costo_total:.2f} minutos")
 
 
 
